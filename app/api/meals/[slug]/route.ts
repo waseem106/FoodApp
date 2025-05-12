@@ -1,24 +1,16 @@
 import { dbconnect } from "@/lib/mongodb";
 import { Meal } from "@/models/Meals";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import {  NextResponse } from "next/server";
 
-// This is the correct signature for a dynamic route API handler in the App Router.
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { slug: string } }
-) {
+
+export async function GET(context){
   try {
     await dbconnect();
-    const resData = await Meal.findOne({ slug: params.slug });
-
-    if (!resData) {
-      return NextResponse.json({ message: "Meal not found" }, { status: 404 });
-    }
-
-    return NextResponse.json(resData, { status: 200 });
+    const { slug } = context.params;
+    const resData = await Meal.findOne({ slug });
+    console.log("fetched result", resData);
+    return NextResponse.json(resData, { status: 201 });
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    console.log("Error:", error);
   }
 }
