@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react'
-import image1 from '@/assets/icons/pngwing.com (1).png'
+
 import image2 from '@/assets/icons/pngwing.com (2).png'
 import image3 from '@/assets/icons/pngwing.com (3).png'
 import image4 from '@/assets/icons/pngwing.com (4).png'

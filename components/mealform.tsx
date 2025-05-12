@@ -20,7 +20,7 @@ function Mealform() {
   const [meal, setMeal] = useState("");
   const [slug, setSlug] = useState("");
   const [summary, setSummary] = useState("");
-  const [image, setImage] = useState<File | null>(null);
+  // const [image, setImage] = useState<File | null>(null);
   const imageRef = useRef<HTMLInputElement>(null);
   const [tempImage, setTempImage] = useState("");
   const [instructions, setInstructions] = useState("");
