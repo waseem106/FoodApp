@@ -2,17 +2,17 @@
 import { uploadImageToCloudinary } from "@/lib/cloudinaryUpload";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-import { z } from "zod";
+// import { z } from "zod";
 import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
 
-const MealFormSchema = z.object({
-  meal: z.string().min(3, { message: "Meal should be atleast 3 characters" }),
-  slug: z.string().min(3, { message: "Slug should be atleasr 3 characters" }),
-  creator: z.string(),
-  summary: z.string(),
-  image: z.string().optional(),
-});
+
+// const MealFormSchema = z.object({
+//   meal: z.string().min(3, { message: "Meal should be atleast 3 characters" }),
+//   slug: z.string().min(3, { message: "Slug should be atleasr 3 characters" }),
+//   creator: z.string(),
+//   summary: z.string(),
+//   image: z.string().optional(),
+// });
 
 function Mealform() {
   const [name, setName] = useState("");
