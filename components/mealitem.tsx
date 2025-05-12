@@ -7,7 +7,7 @@ type MealsItemProps={
     slug:string;
     creator:string;
     summary:string;
-    image:any;
+    image:string;
 }
 
 function Mealitem({title,slug,creator,summary,image}:MealsItemProps) {
