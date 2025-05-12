@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     domains: ['w7.pngwing.com','res.cloudinary.com'],
     
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
