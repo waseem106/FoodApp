@@ -8,7 +8,7 @@ export type paramstype = {
   };
 };
 
-async function page({ params }: paramstype) {
+async function page({ params }: any) {
   const { slug } = params;
   console.log("just before api Pizza");
   const res = await fetch(`http://localhost:3000/api/meals/${slug}`);

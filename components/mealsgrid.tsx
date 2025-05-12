@@ -8,7 +8,7 @@ type MealsGrid = {
   loading: boolean;
 };
 
-function Mealsgrid({ meals, loading }: MealsGrid) {
+function Mealsgrid({ meals, loading }: any) {
   return (
     <>
       {loading && (
@@ -22,7 +22,7 @@ function Mealsgrid({ meals, loading }: MealsGrid) {
       <div className="mx-4 md:mx-10 my-2 grid [grid-template-columns:repeat(1,1fr)] sm:[grid-template-columns:repeat(2,1fr)] md:[grid-template-columns:repeat(3,minmax(200px,1fr))]  gap-10  ">
         {meals &&
           meals?.length > 0 &&
-          meals.map((item) => (
+          meals.map((item:any) => (
             <div
               key={item._id}
               className="border border-gray-600 shadow-2xl  flex flex-col justify-center p-3 rounded-md 

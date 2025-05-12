@@ -1,9 +1,9 @@
+import { paramstype } from "@/app/meals/[slug]/page";
 import { dbconnect } from "@/lib/mongodb";
 import { Meal } from "@/models/Meals";
-import {  NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-
-export async function GET(context){
+export async function GET( context:any) {
   try {
     await dbconnect();
     const { slug } = context.params;
