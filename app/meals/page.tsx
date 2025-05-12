@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { MealType } from "./testing/page";
 
-function page() {
+function Page() {
   const [meal, setMeal] = useState<MealType[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -62,4 +62,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

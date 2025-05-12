@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const MealFormSchema = z.object({
   meal: z.string().min(3, { message: "Meal should be atleast 3 characters" }),
@@ -58,6 +59,7 @@ function Mealform() {
 
       if (res.status != 201) throw new Error("Failed to save form data");
       setLoading(false);
+      // revalidatePath('/meals')
       router.push("/meals");
     } catch (error) {
       alert(`Failed to submit the form ${error}`);

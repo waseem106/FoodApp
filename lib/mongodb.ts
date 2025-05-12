@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
 
-
-
-
 let isConnected=false
 export async function dbconnect(){
 
@@ -12,7 +9,7 @@ export async function dbconnect(){
         console.log("Connected to DB!");
         isConnected=true
     } catch (error) {
-        console.log("Database Connection failed!")
+        console.log("Database Connection failed!",error)
         process.exit(1)
     }
   

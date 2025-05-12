@@ -1,7 +1,7 @@
 import { Meal } from "@/models/Meals";
 import { NextResponse } from "next/server";
 import { dbconnect } from "@/lib/mongodb";
-import multer from "multer";
+
 
 
 
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     await dbconnect();
     const data = await Meal.find();

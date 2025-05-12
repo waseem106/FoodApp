@@ -12,11 +12,10 @@ import image8 from '@/assets/icons/pngwing.com (8).png'
 import Image from 'next/image'
 
 const images=[
-    {image:image1,alt:"image"},
-    {image:image2,alt:"image"},
-    {image:image3,alt:"image"},
     {image:image4,alt:"image"},
     {image:image5,alt:"image"},
+    {image:image3,alt:"image"},
+    {image:image2,alt:"image"},
     {image:image6,alt:"image"},
     {image:image7,alt:"image"},
     {image:image8,alt:"image"},
