@@ -1,17 +1,16 @@
-
 import { dbconnect } from "@/lib/mongodb";
 import { Meal } from "@/models/Meals";
 import { NextRequest, NextResponse } from "next/server";
-
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export async function GET(
   request: NextRequest,
-  context: { params: { slug: string } }
+  { params }: { params: { slug: string } }
 ) {
   try {
     await dbconnect();
 
-    const {slug} = await context.params;
+    const { slug } = await params;
 
     const meal = await Meal.findOne({ slug });
 
