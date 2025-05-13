@@ -11,7 +11,7 @@ export async function GET(
   try {
     await dbconnect();
 
-    const slug = context.params.slug;
+    const {slug} = await context.params;
 
     const meal = await Meal.findOne({ slug });
 
