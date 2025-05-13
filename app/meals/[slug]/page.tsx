@@ -2,13 +2,15 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 
+
+
 export type paramstype = {
   params: {
     slug: string;
   };
 };
 
-async function page({ params }: any) {
+async function page({ params }:paramstype) {
   const { slug } = params;
   console.log("just before api Pizza");
   const res = await fetch(`http://localhost:3000/api/meals/${slug}`);

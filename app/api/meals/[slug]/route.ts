@@ -1,16 +1,27 @@
-import { paramstype } from "@/app/meals/[slug]/page";
+
 import { dbconnect } from "@/lib/mongodb";
 import { Meal } from "@/models/Meals";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET( context:any) {
+
+export async function GET(
+  request: NextRequest,
+  context: { params: { slug: string } }
+) {
   try {
     await dbconnect();
-    const { slug } = context.params;
-    const resData = await Meal.findOne({ slug });
-    console.log("fetched result", resData);
-    return NextResponse.json(resData, { status: 201 });
+
+    const slug = context.params.slug;
+
+    const meal = await Meal.findOne({ slug });
+
+    if (!meal) {
+      return NextResponse.json({ message: "Meal not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(meal, { status: 200 });
   } catch (error) {
-    console.log("Error:", error);
+    console.error("Error fetching meal:", error);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
